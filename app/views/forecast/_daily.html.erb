@@ -1,0 +1,9 @@
+<div class='span6'>
+  <p>
+  <%= daily_forecast['date']['weekday'] %>
+  <img src='<%= daily_forecast['icon_url'] %>'>
+  <%= daily_forecast['high']['fahrenheit'] %>&deg; F / <%= daily_forecast['low']['fahrenheit'] %>&deg; F
+  <br />
+  <%= @forecast.txt_forecast(daily_forecast['period']) %>
+  </p>
+</div>

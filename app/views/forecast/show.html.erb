@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row'>
+  <h2>The Weather of Geoff</h2>
+</div>
+
+<div class='row'>
+  <h3>Weather for: <%= @forecast.city %></h3>
+    <div class='span6'>
+    <p>
+      <%= @forecast.temp_f %>&deg; F
+      <img src='<%= @forecast.forecast_icon_url %>'>
+      <%= @forecast.current_conditions %>
+    </p>
+
+    <% unless @forecast.no_alerts? %>
+        <p><a href='#alerts' class='text-error'>There are weather alerts in effect.</a></p>
+    <% end %>
+
+    <p><img class='img-rounded' src='<%= @forecast.radar %>'></p>
+  </div>
+</div>
+
+<div class='row'>
+  <h3>Current Conditions</h3>
+  <div class='span6'>
+    <p>
+      Temperature: <%= @forecast.temp_string %><br />
+      Winds: <%= @forecast.wind %>
+    </p>
+
+    <p>
+      Sunrise: <%= @forecast.sunrise %><br />
+      Sunset: <%= @forecast.sunset %>
+    </p>
+  </div>
+</div>
+
+<div class='row'>
+<h3>Extended Forecast</h3>
+<% @forecast.daily_forecast.each do |daily_forecast| %>
+  <%= render 'daily', :daily_forecast => daily_forecast %>
+<% end %>
+</div>
+
+<% unless @forecast.no_alerts? %>
+  <div class='row'>
+    <a name='alerts'></a><h3>Weather Alerts</h3>
+    <% @forecast.alerts.each do |alert| %>
+      <%= render 'alerts', :alert => alert %>
+    <% end %>
+  </div>
+<% end %>
