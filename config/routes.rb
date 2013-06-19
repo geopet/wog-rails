@@ -1,7 +1,14 @@
 WogRails2::Application.routes.draw do
 
-  match 'forecast/' => 'forecast#index'
-  match 'forecast/:zip' => 'forecast#show'
+  get 'forecasts/' => 'forecasts#index'
+
+  post '/' => 'forecasts#show'
+  post 'forecasts' => 'forecasts#show'
+
+  get '/:id' => 'forecasts#show'
+  get 'forecasts/:id' => 'forecasts#show'
+
+  root to: 'forecasts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

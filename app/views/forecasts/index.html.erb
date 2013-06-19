@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row'>
+  <h2>The Weather of Geoff</h2>
+</div>
+
+<div class='row'>
+  <%= form_tag(url: forecasts_path, method: :post) do %>
+    <%= label_tag(:id, 'Zip Code') %>
+    <%= text_field_tag(:id) %>
+    <%= submit_tag('Submit') %>
+  <% end %>
+</div>
