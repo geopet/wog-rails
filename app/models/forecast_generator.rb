@@ -4,7 +4,7 @@ class ForecastGenerator
 
   def initialize(zip)
     @zip = zip
-    @key = WEATHERKEY
+    @key = ENV['WEATHERKEY']
   end
 
   def fetch_json
