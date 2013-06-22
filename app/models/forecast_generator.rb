@@ -1,5 +1,5 @@
 class ForecastGenerator
-  require 'open-uri'
+  require 'rest_client'
   require 'json'
 
   def initialize(zip)
@@ -9,8 +9,9 @@ class ForecastGenerator
 
   def fetch_json
     url = "http://api.wunderground.com/api/#{@key}/alerts/radar/conditions/forecast/astronomy/q/#{@zip}.json"
-    resp = open(url)
-    json_string = resp.read
+    #resp = RestClient.get url
+    json_string = RestClient.get url
+    #json_string = resp.read
     #json_string = JSONDATA03
 
     JSON.parse(json_string)
