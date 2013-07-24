@@ -20,6 +20,10 @@ class Forecast
     @parsed_json['current_observation']['icon_url']
   end
 
+  def relative_humidity
+    @parsed_json['current_observation']['relative_humidity']
+  end
+
   def current_conditions
     @parsed_json['current_observation']['weather']
   end
@@ -36,7 +40,7 @@ class Forecast
     @parsed_json['alerts'].count
   end
 
-  def radar 
+  def radar
     @parsed_json['radar']['image_url']
   end
 

@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <div class='row'>
-  <h2>The Weather of Geoff</h2>
+  <h2 class='text-center'>The Weather of Geoff</h2>
 </div>
 
 <div class='row'>
-  <h3>Weather for: <%= @forecast.city %></h3>
+  <h3 class='text-center'>Weather for:<br />
+  <%= @forecast.city %></h3>
     <div class='span6'>
     <p>
       <%= @forecast.temp_f %>&deg; F
@@ -14,7 +15,7 @@
     </p>
 
     <% unless @forecast.no_alerts? %>
-        <p><a href='#alerts' class='text-error'>There are weather alerts in effect.</a></p>
+      <p><a href='#alerts' class='text-error'>There are weather alerts in effect.</a></p>
     <% end %>
 
     <p><img class='img-rounded' src='<%= @forecast.radar %>'></p>
@@ -26,6 +27,7 @@
   <div class='span6'>
     <p>
       Temperature: <%= @forecast.temp_string %><br />
+      Humidity: <%= @forecast.relative_humidity %><br />
       Winds: <%= @forecast.wind %>
     </p>
 
